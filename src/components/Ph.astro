@@ -1,0 +1,7 @@
+---
+// Visar en text. Om den är en platshållare ("[...]") markeras den gult.
+interface Props { text: string; class?: string }
+const { text, class: cls = '' } = Astro.props;
+const isPlaceholder = text.trim().startsWith('[');
+---
+{isPlaceholder ? <span class:list={['ph', cls]}>{text}</span> : <span class={cls}>{text}</span>}

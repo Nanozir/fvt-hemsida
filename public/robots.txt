@@ -1,0 +1,3 @@
+# Utkast: stäng av indexering tills sidan är officiell.
+User-agent: *
+Disallow: /

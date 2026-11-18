@@ -1,0 +1,39 @@
+---
+import CheckList from './CheckList.astro';
+import { staff, quality, dataProtection, steps } from '../data/site';
+---
+<section class="band alt" id="uppdragsgivare" aria-labelledby="h-uppdrag">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">För uppdragsgivare</p>
+      <h2 id="h-uppdrag">Ett komplement till Kriminalvårdens och kommunens arbete</h2>
+      <p class="lead">Samhällsstart 90 är tänkt för personer i övergången från anstalt eller frivård till vardagslivet. Urval, remissväg och ansvar bestäms tillsammans med uppdragsgivaren.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="panel">
+        <h3>Föreslagen bemanning</h3>
+        <ul class="staff">{staff.map(([k, v]) => <li><span>{k}</span><span class="v">{v}</span></li>)}</ul>
+        <p class="hint">Bemanningen förutsätter finansiering och rekrytering.</p>
+      </div>
+      <div class="panel">
+        <h3>Kvalitet och säkerhet</h3>
+        <CheckList items={quality} />
+      </div>
+      <div class="panel">
+        <h3>Dataskydd</h3>
+        <CheckList items={dataProtection} />
+      </div>
+    </div>
+
+    <div class="mt-3">
+      <h3 class="h3-gap">Så kan ett samarbete börja</h3>
+      <ol class="steps">{steps.map((s) => <li>{s}</li>)}</ol>
+    </div>
+
+    <div class="buyer-cta">
+      <a class="btn btn-forest" href="#kontakt">Boka ett dialogmöte</a>
+      <p>Pris lämnas på förfrågan. Föreningen är ny och programmet är ännu inte finansierat. Vi berättar gärna mer.</p>
+    </div>
+  </div>
+</section>

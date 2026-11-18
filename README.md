@@ -22,6 +22,11 @@ npm run build
 
 Den färdiga sidan hamnar i `dist/`. Den kan läggas på vilket statiskt webbhotell som helst (helst i EU).
 
+## Publicering
+
+Sidan publiceras automatiskt på https://nanozir.github.io/fvt-hemsida/ när något läggs på `main`.
+Det sköts av `.github/workflows/deploy.yml`. I repots Settings → Pages ska Source vara **GitHub Actions**.
+
 ## Ändra texter
 
 Nästan all text och alla uppgifter finns i `src/data/site.ts`.

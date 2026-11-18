@@ -1,24 +1,22 @@
 ---
 import BrandMark from './BrandMark.astro';
-import { site } from '../data/site';
 const links = [
-  ['#programmet', 'Programmet'],
+  ['#faserna', 'Faserna'],
+  ['#stodet', 'Så fungerar stödet'],
   ['#uppdragsgivare', 'För uppdragsgivare'],
   ['#deltagare', 'För deltagare'],
   ['#om', 'Om föreningen'],
+  ['#kontakt', 'Kontakt'],
 ];
 ---
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="#start" aria-label={`${site.name}, till början`}>
+<header class="top">
+  <div class="wrap top-inner">
+    <a class="brand" href="#">
       <BrandMark />
-      <span class="brand-name">Värmland Tillsammans<small>Ideell förening · {site.city}</small></span>
+      Värmland Tillsammans
     </a>
-    <nav class="nav" aria-label="Huvudmeny">
-      <ul>
-        {links.map(([href, label]) => <li><a href={href}>{label}</a></li>)}
-        <li><a class="cta" href="#kontakt">Kontakt</a></li>
-      </ul>
+    <nav aria-label="Huvudmeny">
+      {links.map(([href, label]) => <a href={href}>{label}</a>)}
     </nav>
   </div>
 </header>

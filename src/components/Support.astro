@@ -1,0 +1,24 @@
+---
+import { supportSteps, suitsYou, cannotPromise } from '../data/site';
+---
+<section id="stodet" class="plan" aria-labelledby="stod-rubrik">
+  <div class="wrap">
+    <h2 id="stod-rubrik">Så fungerar stödet</h2>
+    <p class="section-intro">Varje deltagare får en egen plan och en stödperson. Kontakten är tät i början och trappas ner mot slutet.</p>
+
+    <ol class="steps">
+      {supportSteps.map(([title, text]) => <li><strong>{title}</strong><span>{text}</span></li>)}
+    </ol>
+
+    <div class="two-col">
+      <div>
+        <h3>Stödet passar dig som</h3>
+        <ul class="plain">{suitsYou.map((t) => <li>{t}</li>)}</ul>
+      </div>
+      <div>
+        <h3>Det här är stödet inte</h3>
+        <ul class="plain">{cannotPromise.map((t) => <li>{t}</li>)}</ul>
+      </div>
+    </div>
+  </div>
+</section>

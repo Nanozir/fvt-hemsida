@@ -3,9 +3,11 @@ import Base from '../layouts/Base.astro';
 import DraftBanner from '../components/DraftBanner.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
-import Program from '../components/Program.astro';
-import Buyers from '../components/Buyers.astro';
-import Participants from '../components/Participants.astro';
+import Phases from '../components/Phases.astro';
+import Principle from '../components/Principle.astro';
+import Support from '../components/Support.astro';
+import Clients from '../components/Clients.astro';
+import People from '../components/People.astro';
 import About from '../components/About.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
@@ -15,13 +17,16 @@ import { site } from '../data/site';
   title="Samhällsstart 90 | Föreningen Värmland Tillsammans"
   description="Praktiskt stöd under 90 dagar för en tryggare övergång till vardagslivet efter frigivning. En ideell förening i Karlstad."
 >
+  <a class="skip" href="#innehall">Hoppa till innehållet</a>
   {site.draft && <DraftBanner />}
   <Header />
-  <main>
+  <main id="innehall">
     <Hero />
-    <Program />
-    <Buyers />
-    <Participants />
+    <Phases />
+    <Principle />
+    <Support />
+    <Clients />
+    <People />
     <About />
     <Contact />
   </main>

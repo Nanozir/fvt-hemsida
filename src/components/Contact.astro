@@ -2,116 +2,24 @@
 import Ph from './Ph.astro';
 import { site } from '../data/site';
 ---
-<section class="band" id="kontakt" aria-labelledby="h-kontakt">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">Kontakt</p>
-      <h2 id="h-kontakt">Hör av dig</h2>
-      <p class="lead">Vi svarar inom <Ph text={site.replyDays} /> arbetsdagar.</p>
+<section id="kontakt" class="contact" aria-labelledby="kontakt-rubrik">
+  <div class="wrap narrow">
+    <h2 id="kontakt-rubrik">Kontakt</h2>
+    <p class="person"><Ph text={site.contactPerson} /><br />{site.name}</p>
+    <p class="contact-text">Vill du veta mer eller planera en pilot? Hör av dig så bokar vi ett första samtal. Skriv inte om brott, domar eller hälsa i e-post.</p>
+    <div class="contact-lines">
+      <a href={`mailto:${site.email}`}>{site.email}</a>
+      <a href={`tel:${site.phoneRaw}`}>{site.phone}</a>
     </div>
-    <div class="contact-grid">
-      <ul class="contact-list">
-        <li><span class="k">Kontaktperson</span><Ph text={site.contactPerson} class="start" /></li>
-        <li>
-          <span class="k">Telefon</span>
-          <span class="contact-row"><a class="v" href={`tel:${site.phoneRaw}`}>{site.phone}</a><button class="copy" type="button" data-copy={site.phoneRaw} id="copy-tel">Kopiera</button></span>
-        </li>
-        <li>
-          <span class="k">E-post</span>
-          <span class="contact-row"><a class="v" href={`mailto:${site.email}`}>{site.email}</a><button class="copy" type="button" data-copy={site.email} id="copy-mail">Kopiera</button></span>
-        </li>
-        <li><span class="k">Ort</span><span class="v-plain">{site.city}</span></li>
-      </ul>
+    <p><a class="btn btn-main" href={`mailto:${site.email}`}>Skicka e-post</a></p>
 
-      <!-- TODO: Koppla formuläret till en liten serverlös funktion (EU-hosting) som skickar e-post.
-           Inget ska sparas i en databas. Tills dess skickar formuläret ingenting. -->
-      <form id="contact-form" novalidate>
-        <div class="field">
-          <label for="f-namn">Namn eller smeknamn</label>
-          <input type="text" id="f-namn" name="namn" autocomplete="name" required />
-        </div>
-        <div class="field">
-          <label for="f-kontakt">Telefon eller e-post</label>
-          <input type="text" id="f-kontakt" name="kontakt" required />
-          <span class="hint">Så att vi kan svara dig.</span>
-        </div>
-        <div class="field">
-          <label for="f-roll">Jag är</label>
-          <select id="f-roll" name="roll">
-            <option>Uppdragsgivare (myndighet, kommun eller organisation)</option>
-            <option>Intresserad av att vara med</option>
-            <option>Anhörig</option>
-            <option>Annat</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="f-meddelande">Meddelande</label>
-          <p class="warn">Skriv inte om brott, domar eller hälsa här. Det pratar vi om när vi ses, om det behövs.</p>
-          <textarea id="f-meddelande" name="meddelande" required></textarea>
-        </div>
-        <label class="consent" for="f-samtycke">
-          <input type="checkbox" id="f-samtycke" name="samtycke" required />
-          <span>Jag har läst <a href="#integritet">hur föreningen tar hand om mina uppgifter</a>.</span>
-        </label>
-        <div class="form-actions">
-          <button class="btn btn-forest" type="submit">Skicka</button>
-          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-        </div>
-      </form>
-    </div>
-
-    <details class="policy" id="integritet">
+    <details class="privacy">
       <summary>Så tar vi hand om dina uppgifter</summary>
-      <div class="prose">
-        <p>{site.name} är ansvarig för de uppgifter du skickar till oss.</p>
-        <p><b>Vad vi sparar:</b> namn eller smeknamn, telefon eller e-post och ditt meddelande. Vi använder dem bara för att svara dig.</p>
-        <p><b>Hur länge:</b> <Ph text={site.privacy.retention} />. Sedan raderar vi meddelandet.</p>
-        <p><b>Vilka som hanterar dem:</b> vår e-postleverantör <Ph text={site.privacy.emailProvider} /> och vårt webbhotell <Ph text={site.privacy.host} />.</p>
-        <p><b>Kakor:</b> sidan använder inga kakor för statistik eller reklam.</p>
-        <p><b>Dina rättigheter:</b> du kan be att få se, rätta eller ta bort dina uppgifter. Du kan också klaga hos Integritetsskyddsmyndigheten (IMY).</p>
+      <div class="body">
+        <p>{site.name} är ansvarig för de uppgifter du skickar till oss. Vi använder dem bara för att svara dig och sparar dem i <Ph text={site.privacy.retention} />.</p>
+        <p>Vår e-post hanteras av <Ph text={site.privacy.emailProvider} /> och sidan ligger hos <Ph text={site.privacy.host} />.</p>
+        <p>Du kan be att få se, rätta eller ta bort dina uppgifter, och du kan klaga hos Integritetsskyddsmyndigheten (IMY).</p>
       </div>
     </details>
   </div>
 </section>
-
-<script>
-  document.querySelectorAll<HTMLButtonElement>('.copy').forEach((btn) => {
-    btn.addEventListener('click', async () => {
-      const text = btn.dataset.copy ?? '';
-      try {
-        await navigator.clipboard.writeText(text);
-        btn.textContent = 'Kopierat';
-        setTimeout(() => (btn.textContent = 'Kopiera'), 1800);
-      } catch {
-        const target = btn.previousElementSibling;
-        if (!target) return;
-        const range = document.createRange();
-        range.selectNodeContents(target);
-        const sel = window.getSelection();
-        sel?.removeAllRanges();
-        sel?.addRange(range);
-        btn.textContent = 'Markerat';
-      }
-    });
-  });
-
-  const form = document.getElementById('contact-form') as HTMLFormElement | null;
-  const status = document.getElementById('form-status');
-  form?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (!status) return;
-    const get = (name: string) => (form.elements.namedItem(name) as HTMLInputElement | null);
-    const missing: string[] = [];
-    if (!get('namn')?.value.trim()) missing.push('namn');
-    if (!get('kontakt')?.value.trim()) missing.push('telefon eller e-post');
-    if (!get('meddelande')?.value.trim()) missing.push('meddelande');
-    if (!get('samtycke')?.checked) missing.push('kryssa i rutan om uppgifter');
-    if (missing.length) {
-      status.style.color = 'var(--fg)';
-      status.textContent = `Fyll i: ${missing.join(', ')}.`;
-      return;
-    }
-    status.style.color = '';
-    status.textContent = 'Utkast: formuläret skickar inget ännu.';
-  });
-</script>

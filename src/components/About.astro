@@ -2,21 +2,16 @@
 import Ph from './Ph.astro';
 import { site } from '../data/site';
 ---
-<section class="band alt" id="om" aria-labelledby="h-om">
-  <div class="wrap">
-    <div class="split mt-0 items-start">
-      <div class="section-head mb-0">
-        <p class="eyebrow">Om föreningen</p>
-        <h2 id="h-om">En ny förening i Värmland</h2>
-        <p>{site.name} ({site.shortName}) är en ideell förening i {site.city}. Vi arbetar med delaktighet, integration och praktiskt socialt stöd.</p>
-        <p>Föreningen är under uppbyggnad. Samhällsstart 90 är vårt första program, och vi vill utveckla det tillsammans med Kriminalvården och kommunerna.</p>
-        <p><Ph text={site.whyText} /></p>
-      </div>
-      <div class="panel">
-        <h3>Styrelse</h3>
-        <ul class="board">{site.board.map((b) => <li><span>{b.role}</span><Ph text={b.name} /></li>)}</ul>
-        <p class="hint">Organisationsnummer: <Ph text={site.orgNr} /></p>
-      </div>
-    </div>
+<section id="om" class="about" aria-labelledby="om-rubrik">
+  <div class="wrap narrow">
+    <h2 id="om-rubrik">Om föreningen</h2>
+    <p>{site.name} ({site.shortName}) är en ideell förening i {site.city}. Vi arbetar med delaktighet, integration och praktiskt socialt stöd.</p>
+    <p>Föreningen är under uppbyggnad. Samhällsstart 90 är vårt första program, och vi vill utveckla det tillsammans med Kriminalvården och kommunerna.</p>
+    <p><Ph text={site.whyText} /></p>
+    <h3 class="board">Styrelse</h3>
+    <ul class="kv">
+      {site.board.map((b) => <li><span>{b.role}</span><Ph text={b.name} /></li>)}
+      <li><span>Organisationsnummer</span><Ph text={site.orgNr} /></li>
+    </ul>
   </div>
 </section>

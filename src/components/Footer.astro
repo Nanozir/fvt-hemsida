@@ -2,17 +2,10 @@
 import Ph from './Ph.astro';
 import { site } from '../data/site';
 ---
-<footer class="site-footer">
+<footer class="foot">
   <div class="wrap">
-    <div class="footer-intro">
-      <strong>{site.name} ({site.shortName})</strong>
-      <p>Ideell förening i {site.city}. Samhällsstart 90 är ett frivilligt komplement till ordinarie stöd och ersätter inte myndigheter eller vård.</p>
-    </div>
-    <dl>
-      <dt>Org.nr</dt><dd><Ph text={site.orgNr} /></dd>
-      <dt>Adress</dt><dd><Ph text={site.address} />, {site.city}</dd>
-      <dt>E-post</dt><dd>{site.email}</dd>
-      <dt>Telefon</dt><dd>{site.phone}</dd>
-    </dl>
+    <p>{site.name} · Org.nr <Ph text={site.orgNr} /> · <Ph text={site.address} />, {site.city}</p>
+    <p>Samhällsstart 90 är ett frivilligt komplement till ordinarie stöd. Upplägg och villkor bestäms i en separat överenskommelse.</p>
+    <p>Sidan använder inga kakor och ingen spårning.</p>
   </div>
 </footer>

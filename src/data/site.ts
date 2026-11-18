@@ -26,47 +26,60 @@ export const site = {
   },
 };
 
-export const facts = [
-  { k: 'Längd', v: '90 dagar' },
-  { k: 'Egna mål per deltagare', v: '2–4' },
-  { k: 'Kontakter per vecka', v: '3–4' },
-  { k: 'Deltagare samtidigt', v: '10' },
-  { k: 'Deltagande', v: 'Frivilligt' },
-];
-
 export const phases = [
   {
-    cls: 'p1', short: 'Stabilitet', days: 'Dag 1–30', title: 'Stabilitet och nystart',
+    short: 'Stabilitet', days: 'Dag 1–30', title: 'Stabilitet och nystart',
+    question: 'Var står jag nu, och vad är viktigast först?',
+    goal: 'Skapa trygg kontakt, se över dina behov och göra en första plan.',
     items: [
-      'Vi lär känna varandra och går igenom vad stödet är.',
-      'Vi ser över dina mål och praktiska behov.',
-      'Du får en första plan för boende, ekonomi och vardag.',
+      'Vad stödet är, att det är frivilligt och vad vi inte kan göra',
+      'Kartläggning av dina mål och praktiska behov',
+      'En första plan för boende, ekonomi, myndigheter och vardag',
+      'Vilka andra verksamheter som behöver kontaktas',
     ],
+    done: 'Du har en skriftlig plan med 2–4 egna mål.',
+    weeks: [0, 1, 2, 3],
   },
   {
-    cls: 'p2', short: 'Etablering', days: 'Dag 31–60', title: 'Etablering',
+    short: 'Etablering', days: 'Dag 31–60', title: 'Etablering',
+    question: 'Hur bygger jag en vardag som fungerar?',
+    goal: 'Jobba vidare med boende, ekonomi och rutiner, och ta steg mot jobb eller studier.',
     items: [
-      'Vi jobbar vidare med boende, ekonomi och rutiner.',
-      'Vi utforskar jobb, praktik eller studier.',
-      'Du övar på att ta kontakt med myndigheter.',
+      'Boende, ekonomi och vardagsstruktur',
+      'Jobb, praktik, studier eller annan sysselsättning',
+      'Positiva sociala kontakter och fritid',
+      'Öva på att själv kontakta myndigheter och verksamheter',
     ],
+    done: 'Du har tagit konkreta steg mot boende, ekonomi och sysselsättning.',
+    weeks: [4, 5, 6, 7],
   },
   {
-    cls: 'p3', short: 'Självständighet', days: 'Dag 61–90', title: 'Självständighet',
+    short: 'Självständighet', days: 'Dag 61–90', title: 'Självständighet',
+    question: 'Hur klarar jag mig vidare själv?',
+    goal: 'Följa upp målen, göra en plan för tiden efter och veta vart du kan vända dig.',
     items: [
-      'Vi följer upp målen och ser vad som har hänt.',
-      'Du gör en plan för de kommande 30–90 dagarna.',
-      'Vi avslutar med ett samtal och en sammanfattning.',
+      'Uppföljning av mål, framsteg och det som återstår',
+      'En plan för de kommande 30–90 dagarna',
+      'Fortsatt kontakt med ordinarie stöd',
+      'Avslutande samtal och en skriftlig sammanfattning',
     ],
+    done: 'Du har en plan för tiden efter och vet vem du kan kontakta.',
+    weeks: [8, 9, 10, 11],
   },
 ];
 
-export const supportExamples = [
-  'Vägledning inför kontakter med myndigheter och samhällsservice.',
-  'Praktisk planering kring boende, ekonomi och vardagsrutiner.',
-  'Stöd att hitta jobb, praktik, studier eller annan meningsfull aktivitet.',
-  'Hjälp att bygga positiva sociala kontakter och planera fritid.',
-  'Vi hänvisar vidare när det gäller vård, behandling eller myndighetsbeslut.',
+export const supportSteps = [
+  ['Kartläggning', 'Vi går igenom din situation, dina mål och vad du behöver hjälp med.'],
+  ['Din plan', 'Du väljer 2–4 konkreta mål. Vi skriver ner vem som gör vad och när.'],
+  ['Tät kontakt', 'Vi hörs eller träffas 3–4 gånger i veckan: möten, telefon eller hjälp på plats.'],
+  ['Uppföljning', 'Vi ser vad som fungerar och justerar planen. Efter 90 dagar har du en plan för tiden efter.'],
+];
+
+export const suitsYou = [
+  'nyligen har frigivits eller snart ska friges',
+  'vill ha ordning på boende, ekonomi och vardag',
+  'vill komma vidare mot jobb, praktik eller studier',
+  'behöver hjälp att förstå och ta kontakt med myndigheter',
 ];
 
 export const cannotPromise = [
@@ -114,17 +127,11 @@ export const dataProtection = [
 ];
 
 export const steps = [
-  'Ett första dialogmöte.',
-  'Vi kartlägger målgruppens behov och de insatser som redan finns.',
-  'Vi bestämmer krav på säkerhet, kompetens och dataskydd.',
-  'Program, bemanning och pris anpassas efter uppdraget.',
-  'Ni tar ställning till pilot, upphandling eller annan finansiering.',
-];
-
-export const howItWorks = [
-  'Vi träffas eller hörs 3–4 gånger i veckan. Det kan vara möten, telefon eller hjälp på plats.',
-  'Du får veta vad vi kan hjälpa till med, och vad vi inte kan.',
-  'Efter 90 dagar har du en plan för tiden efter.',
+  ['Dialogmöte', 'Vi går igenom era behov, målgruppen och de insatser som redan finns.'],
+  ['Krav och ansvar', 'Vi bestämmer krav på säkerhet, kompetens, dataskydd och rapportering.'],
+  ['Anpassat upplägg', 'Program, bemanning och pris anpassas efter uppdragets omfattning.'],
+  ['Pilot', 'En avgränsad pilot med tydliga mål, urval och utvärdering.'],
+  ['Beslut', 'Ni tar ställning till fortsättning genom upphandling eller annan finansiering.'],
 ];
 
 export const rights = [

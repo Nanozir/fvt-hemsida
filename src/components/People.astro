@@ -1,0 +1,26 @@
+---
+import { rights, crisis } from '../data/site';
+---
+<section id="deltagare" class="people" aria-labelledby="deltagare-rubrik">
+  <div class="wrap">
+    <h2 id="deltagare-rubrik">För deltagare och anhöriga</h2>
+    <p class="section-intro">Det är frivilligt att vara med, och du kan säga nej till det vi föreslår.</p>
+    <div class="two-col">
+      <div class="stack">
+        <div>
+          <h3>Dina rättigheter</h3>
+          <ul class="plain">{rights.map((t) => <li>{t}</li>)}</ul>
+        </div>
+        <div>
+          <h3>För dig som är anhörig</h3>
+          <p>Du får gärna höra av dig med frågor om programmet. Vi kan inte berätta något om en deltagare utan personens tillåtelse.</p>
+        </div>
+      </div>
+      <aside class="crisis" aria-labelledby="kris-rubrik">
+        <h3 id="kris-rubrik">Behöver du hjälp nu?</h3>
+        <p>Vi är inte en akutverksamhet. Ring något av de här numren:</p>
+        <dl>{crisis.map(([n, t]) => <><dt>{n}</dt><dd>{t}</dd></>)}</dl>
+      </aside>
+    </div>
+  </div>
+</section>
